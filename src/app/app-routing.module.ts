@@ -8,6 +8,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 
 const routes: Routes = [
+  { path: '', component : LoginComponent },
   { path: 'login', component : LoginComponent },
   { path: 'register', component: RegisterComponent },
   { path: 'feed', component: CropfeedComponent },

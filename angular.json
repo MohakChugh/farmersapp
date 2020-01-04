@@ -24,9 +24,15 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/css/smoothproducts.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/smoothproducts.min.js",
+              "src/assets/js/theme.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -89,9 +95,16 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.css"
+              "src/styles.css",
+              "src/assets/bootstrap/css/bootstrap.min.css",
+              "src/assets/css/smoothproducts.css"
             ],
-            "scripts": []
+            "scripts": [
+              "src/assets/bootstrap/js/bootstrap.min.js",
+              "src/assets/js/jquery.min.js",
+              "src/assets/js/smoothproducts.min.js",
+              "src/assets/js/theme.js"
+            ]
           }
         },
         "lint": {
