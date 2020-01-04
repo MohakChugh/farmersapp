@@ -8,7 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildrun": "ng build --prod && lite-server dist/farmersapp/index.html"
+    "buildrun": "ng build --prod && cd dist/farmersapp && lite-server index.html"
   },
   "private": true,
   "dependencies": {

@@ -28,10 +28,7 @@
               "src/assets/css/smoothproducts.css"
             ],
             "scripts": [
-              "src/assets/bootstrap/js/bootstrap.min.js",
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/smoothproducts.min.js",
-              "src/assets/js/theme.js"
+
             ]
           },
           "configurations": {
@@ -100,10 +97,7 @@
               "src/assets/css/smoothproducts.css"
             ],
             "scripts": [
-              "src/assets/bootstrap/js/bootstrap.min.js",
-              "src/assets/js/jquery.min.js",
-              "src/assets/js/smoothproducts.min.js",
-              "src/assets/js/theme.js"
+
             ]
           }
         },
