@@ -2,12 +2,15 @@
 <main class="page product-page">
   <section class="clean-block clean-product dark">
     <div class="container">
-      <div class="block-heading">
+      <div class="block-heading" *ngIf="!bidding">
         <h2 class="text-info" class="fix-top">Product Page</h2>
         <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc quam urna, dignissim nec auctor in,
           mattis vitae leo.</p>
       </div>
-      <div class="block-content">
+      <div *ngIf="bidding">
+        <app-bidding></app-bidding>
+      </div>
+      <div class="block-content" *ngIf="!bidding">
         <div class="product-info">
           <div class="row">
             <div class="col-md-6">
@@ -19,7 +22,7 @@
                       src="assets/img/tech/image1.jpg"></a></div>
               </div>
             </div>
-            <div class="col-md-6" *ngIf="!bidding">
+            <div class="col-md-6">
               <div class="info">
                 <h3>Lorem Ipsum</h3>
                 <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img
@@ -34,11 +37,6 @@
                     <i class="icon-basket"></i>Start Bidding
                   <!-- </a> -->
                 </button>
-
-                <div *ngIf="bidding">
-                  <app-bidding></app-bidding>
-                </div>
-
                 <div class="summary">
                   <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec augue nunc,
                     pretium at augue at, convallis pellentesque ipsum. Vestibulum diam risus,
