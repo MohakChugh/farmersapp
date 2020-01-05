@@ -12,6 +12,10 @@ import { NavbarComponent } from './navbar/navbar.component';
 import { CropProductComponent } from './crop-product/crop-product.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { FiltersComponent } from './cropfeed/filters/filters.component';
+import { ProductsComponent } from './cropfeed/products/products.component';
+import { RelatedProductsComponent } from './crop-product/related-products/related-products.component';
+import { BiddingComponent } from './crop-product/bidding/bidding.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,11 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
     NavbarComponent,
     CropProductComponent,
     PaymentComponent,
-    ShoppingcartComponent
+    ShoppingcartComponent,
+    FiltersComponent,
+    ProductsComponent,
+    RelatedProductsComponent,
+    BiddingComponent
   ],
   imports: [
     BrowserModule,

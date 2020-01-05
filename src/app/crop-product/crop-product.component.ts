@@ -7,9 +7,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CropProductComponent implements OnInit {
 
+  bidding = false;
   constructor() { }
 
   ngOnInit() {
+  }
+
+  togglebidding() {
+    this.bidding = true;
   }
 
 }

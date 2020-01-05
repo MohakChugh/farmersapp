@@ -12,4 +12,7 @@ export class CropfeedComponent implements OnInit {
   ngOnInit() {
   }
 
+  fetchcontentpage(n: number) {
+    console.log(`Page number ${n} is to be shown`);
+  }
 }

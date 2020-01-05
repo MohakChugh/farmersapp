@@ -6,6 +6,7 @@ import { CropfeedComponent } from './cropfeed/cropfeed.component';
 import { CropProductComponent } from './crop-product/crop-product.component';
 import { PaymentComponent } from './payment/payment.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
+import { BiddingComponent } from './crop-product/bidding/bidding.component';
 
 const routes: Routes = [
   { path: '', component : LoginComponent },
@@ -14,7 +15,8 @@ const routes: Routes = [
   { path: 'feed', component: CropfeedComponent },
   { path: 'cropproduct', component: CropProductComponent },
   { path: 'payment', component: PaymentComponent },
-  { path: 'cart', component: ShoppingcartComponent }
+  { path: 'cart', component: ShoppingcartComponent },
+  { path: 'bidding', component: BiddingComponent }
 
 ];
 
