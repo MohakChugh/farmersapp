@@ -8,7 +8,9 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "buildrun": "ng build --prod && cd dist/farmersapp && lite-server index.html"
+    "buildrun": "ng build --prod && cd dist/farmersapp && lite-server index.html",
+    "devbuildrun": "ng build --prod --watch && cd dist/farmersapp && lite-server index.html",
+    "deploy": "ng build --prod && firebase deploy"
   },
   "private": true,
   "dependencies": {
