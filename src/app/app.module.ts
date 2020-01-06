@@ -17,6 +17,7 @@ import { FiltersComponent } from './cropfeed/filters/filters.component';
 import { ProductsComponent } from './cropfeed/products/products.component';
 import { RelatedProductsComponent } from './crop-product/related-products/related-products.component';
 import { BiddingComponent } from './crop-product/bidding/bidding.component';
+import { AuthGuard } from './auth.guard';
 
 
 @NgModule({
@@ -41,7 +42,7 @@ import { BiddingComponent } from './crop-product/bidding/bidding.component';
     AppRoutingModule,
     HttpClientModule
   ],
-  providers: [],
+  providers: [AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
