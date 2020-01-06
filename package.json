@@ -10,7 +10,7 @@
     "e2e": "ng e2e",
     "buildrun": "ng build --prod && cd dist/farmersapp && lite-server index.html",
     "devbuildrun": "ng serve --prod --watch && cd dist/farmersapp && lite-server index.html",
-    "deploypush": "ng build --prod && firebase deploy && git add . && git commit -m 'new files and features added' && git push origin master",
+    "deploypush": "git add . && git commit -m 'new files and features added' && git push origin master && ng build --prod && firebase deploy",
     "deployonly": "ng build --prod && firebase deploy"
   },
   "private": true,

@@ -1,6 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
+import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,7 @@ import { FiltersComponent } from './cropfeed/filters/filters.component';
 import { ProductsComponent } from './cropfeed/products/products.component';
 import { RelatedProductsComponent } from './crop-product/related-products/related-products.component';
 import { BiddingComponent } from './crop-product/bidding/bidding.component';
+
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { BiddingComponent } from './crop-product/bidding/bidding.component';
   imports: [
     BrowserModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]
