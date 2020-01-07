@@ -9,7 +9,11 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  constructor(private router: Router, private http: HttpClient) { }
+  constructor(private router: Router, private http: HttpClient) {
+    if (!!localStorage.getItem('token')) {
+      localStorage.removeItem('token');
+    }
+  }
   name: string;
   password: string;
   data = {};
@@ -23,35 +27,43 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
     console.log(this.name);
     console.log(this.password);
+    if (this.password == undefined || this.name == undefined) {
+      throw new Error('EMAIL OR PASSWORD REQUIRED');
+    }
     this.data = {
-      email : this.name,
-      password : this.password
+      email: this.name,
+      password: this.password
     };
     // Make HTTP request and validate token
     // If token
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
     try {
-      this.http.post(this.rooturl + '/loginuser', this.data , {headers}).subscribe(token => {
+      this.http.post(this.rooturl + '/loginuser', this.data, { headers }).subscribe(token => {
         console.log(token);
-        this.isLoading = false
-;        // tslint:disable-next-line: triple-equals
-        if (token == 'Email not verified') {
-          // Display message Email not verified
-          this.message = 'Email not verified';
+        this.isLoading = false;
         // tslint:disable-next-line: triple-equals
+        if (token == 'Email not verified') {
+          this.message = 'Email not verified';
+          // tslint:disable-next-line: triple-equals
         } else if (token == 'The password is invalid or the user does not have a password.') {
-          // Display message password incorrect
           this.message = 'The password is invalid or the user does not have a password';
+          // tslint:disable-next-line: triple-equals
+        } else if (token == 'The email address is badly formatted.') {
+          this.message = 'The email address is badly formatted';
         } else {
           localStorage.setItem('token', JSON.stringify(token));
           this.router.navigate(['/feed']);
         }
       });
     } catch (err) {
+      this.isLoading = false;
       console.log(err);
       this.message = err;
       console.log(err);
     }
-
+    // this.isLoading = false;
+    // setTimeout(() => {
+    //   this.message = 'This is some error from ourside. Please try again later';
+    // }, 10000);
   }
 }

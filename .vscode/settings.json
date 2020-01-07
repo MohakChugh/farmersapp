@@ -3,5 +3,6 @@
         "checkloggedin",
         "loginuser",
         "rooturl"
-    ]
+    ],
+    "npm-scripts.showStartNotification": false
 }

@@ -17,8 +17,8 @@
                             class="form-check-label" for="checkbox">Remember me</label></div>
                 </div> -->
                 <button class="btn btn-primary btn-block" type="submit" (click)="login()">Log In</button>
-                <p *ngIf="isLoading">Loading!!!!!</p>
-                <p>{{ message }}</p>
+                <p *ngIf="isLoading" class="btn dark" style="text-align: center;">Loading!!!!!</p>
+                <p class="btn">{{ message }}</p>
             </form>
         </div>
     </section>
