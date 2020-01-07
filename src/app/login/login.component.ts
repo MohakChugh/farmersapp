@@ -10,9 +10,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) {
-    if (!!localStorage.getItem('token')) {
-      localStorage.removeItem('token');
-    }
+    // if (!!localStorage.getItem('token')) {
+    //   localStorage.removeItem('token');
+    // }
   }
   name: string;
   password: string;
@@ -27,17 +27,16 @@ export class LoginComponent implements OnInit {
     this.isLoading = true;
     console.log(this.name);
     console.log(this.password);
-    if (this.password == undefined || this.name == undefined) {
-      throw new Error('EMAIL OR PASSWORD REQUIRED');
-    }
     this.data = {
       email: this.name,
       password: this.password
     };
-    // Make HTTP request and validate token
-    // If token
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
     try {
+      // tslint:disable-next-line: triple-equals
+      if (this.password == undefined || this.name == undefined) {
+        throw new Error('EMAIL OR PASSWORD REQUIRED');
+      }
       this.http.post(this.rooturl + '/loginuser', this.data, { headers }).subscribe(token => {
         console.log(token);
         this.isLoading = false;
@@ -50,6 +49,12 @@ export class LoginComponent implements OnInit {
           // tslint:disable-next-line: triple-equals
         } else if (token == 'The email address is badly formatted.') {
           this.message = 'The email address is badly formatted';
+        // tslint:disable-next-line: triple-equals
+        } else if (token == 'There is no user record corresponding to this identifier. The user may have been deleted.') {
+          this.message = 'User does not exist. Please check';
+        // tslint:disable-next-line: triple-equals
+        } else if (token == 'signInWithEmailAndPassword failed: First argument "email" must be a valid string.') {
+          this.message = 'First argument "email" must be a valid string.';
         } else {
           localStorage.setItem('token', JSON.stringify(token));
           this.router.navigate(['/feed']);
