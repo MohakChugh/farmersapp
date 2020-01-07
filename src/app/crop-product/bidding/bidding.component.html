@@ -63,19 +63,21 @@
                 <hr>
                 <div class="bidzone">
                   <form method="POST">
-                    <label for="bid_price">Your Bidding Amount</label>
+                    <label for="bid_price">Your Bidding Amount (In Thousand)</label>
                     <br />
-                    <span class="btn btn-dark" id="decrement"><i class="fa fa-minus"></i></span>
-                    <input name="bid_price" id="bid_price" type="number" placeholder="0" default="0" />
-                    <span class="btn btn-dark" id="increment"><i class="fa fa-plus"></i></span>
+                    <span class="btn btn-light" id="decrement" (click)="increaseby1()"><i class="fa fa-minus"></i> +1</span>
+                    <input [(ngModel)]="bid_price" [value]="bid_price" name="bid_price" id="bid_price" type="number" placeholder="0" default="0" />
+                    <span class="btn btn-light" id="increment" (click)="decreaseby1()"><i class="fa fa-plus"></i> -1</span>
                     <button class="btn btn-dark" type="submit">Place Bid</button>
                   </form>
                   <p class="text-muted">Note: Bid will be valid only if bid price is greater than current bid.<p>
                       <hr>
                       <p><strong>You can skip the bidding process &amp buy the item directly by paying the Buy Now
                           Price.</strong></p>
-                      <form method="post">
-                        <button class="btn btn-primary" type="submit"><a [routerLink]="['/cart']">Buy Now</a></button>
+                      <form>
+                        <a [routerLink]="['/cart']">
+                          <button class="btn btn-primary" data-dismiss="modal" type="button">Buy Now</button>
+                        </a>
                       </form>
                 </div>
               </div>

@@ -18,6 +18,8 @@ import { ProductsComponent } from './cropfeed/products/products.component';
 import { RelatedProductsComponent } from './crop-product/related-products/related-products.component';
 import { BiddingComponent } from './crop-product/bidding/bidding.component';
 import { AuthGuard } from './auth.guard';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 
 @NgModule({
@@ -40,7 +42,8 @@ import { AuthGuard } from './auth.guard';
     BrowserModule,
     FormsModule,
     AppRoutingModule,
-    HttpClientModule
+    HttpClientModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [AuthGuard],
   bootstrap: [AppComponent]
