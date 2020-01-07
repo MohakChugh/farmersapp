@@ -20,6 +20,7 @@ import { BiddingComponent } from './crop-product/bidding/bidding.component';
 import { AuthGuard } from './auth.guard';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { LogoutComponent } from './navbar/logout/logout.component';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { environment } from '../environments/environment';
     FiltersComponent,
     ProductsComponent,
     RelatedProductsComponent,
-    BiddingComponent
+    BiddingComponent,
+    LogoutComponent
   ],
   imports: [
     BrowserModule,

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { stringify } from 'querystring';
 
 @Component({
   selector: 'app-login',
@@ -15,10 +14,13 @@ export class LoginComponent implements OnInit {
   password: string;
   data = {};
   rooturl = 'https://dry-harbor-38701.herokuapp.com';
+  isLoading = false;
+  message = '';
   ngOnInit() {
   }
 
   login() {
+    this.isLoading = true;
     console.log(this.name);
     console.log(this.password);
     this.data = {
@@ -28,18 +30,28 @@ export class LoginComponent implements OnInit {
     // Make HTTP request and validate token
     // If token
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
-    this.http.post(this.rooturl + '/loginuser', this.data , {headers}).subscribe(token => {
-      console.log(token);
-      // tslint:disable-next-line: triple-equals
-      if (token == 'Email not verified') {
-        // Display message Email not verified
-      // tslint:disable-next-line: triple-equals
-      } else if (token == 'The password is invalid or the user does not have a password.') {
-        // Display message password incorrect
-      } else {
-        localStorage.setItem('token', JSON.stringify(token));
-        this.router.navigate(['/feed']);
-      }
-    });
+    try {
+      this.http.post(this.rooturl + '/loginuser', this.data , {headers}).subscribe(token => {
+        console.log(token);
+        this.isLoading = false
+;        // tslint:disable-next-line: triple-equals
+        if (token == 'Email not verified') {
+          // Display message Email not verified
+          this.message = 'Email not verified';
+        // tslint:disable-next-line: triple-equals
+        } else if (token == 'The password is invalid or the user does not have a password.') {
+          // Display message password incorrect
+          this.message = 'The password is invalid or the user does not have a password';
+        } else {
+          localStorage.setItem('token', JSON.stringify(token));
+          this.router.navigate(['/feed']);
+        }
+      });
+    } catch (err) {
+      console.log(err);
+      this.message = err;
+      console.log(err);
+    }
+
   }
 }
