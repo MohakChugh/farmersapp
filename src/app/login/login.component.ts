@@ -10,9 +10,9 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 export class LoginComponent implements OnInit {
 
   constructor(private router: Router, private http: HttpClient) {
-    // if (!!localStorage.getItem('token')) {
-    //   localStorage.removeItem('token');
-    // }
+    if (!!localStorage.getItem('token')) {
+      router.navigate(['/feed']);
+    }
   }
   name: string;
   password: string;
