@@ -8,6 +8,7 @@ import { PaymentComponent } from './payment/payment.component';
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { BiddingComponent } from './crop-product/bidding/bidding.component';
 import { AuthGuard } from './auth.guard';
+import { AddcropComponent } from './addcrop/addcrop.component';
 
 const routes: Routes = [
   { path: '', component : LoginComponent },
@@ -17,7 +18,8 @@ const routes: Routes = [
   { path: 'cropproduct', component: CropProductComponent, canActivate: [AuthGuard] },
   { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: ShoppingcartComponent, canActivate: [AuthGuard] },
-  { path: 'bidding', component: BiddingComponent, canActivate: [AuthGuard] }
+  { path: 'bidding', component: BiddingComponent, canActivate: [AuthGuard] },
+  { path: 'addcrop', component: AddcropComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

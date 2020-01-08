@@ -16,21 +16,17 @@
         <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="faq.html">FAQ</a></li> -->
         <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post-list.html">Blog</a></li> -->
         <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post.html" >Blog Post</a></li> -->
-        <li class="nav-item" role="presentation"><a class="nav-link" href="product-page.html"
-            [routerLink]="['/feed']">Product</a></li>
-        <li class="nav-item" role="presentation"><a class="nav-link" href="payment-page.html"
-            [routerLink]="['/payment']">Payment</a></li>
-        <li class="nav-item" role="presentation"><a class="nav-link" href="shopping-cart.html"
-            [routerLink]="['/cart']">Shopping Cart</a>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/feed']">Product</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/payment']">Payment</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/cart']">Shopping Cart</a>
         </li>
-        <li class="nav-item" role="presentation"><a class="nav-link" href="about-us.html"
-            [routerLink]="['/aboutus']">About Us</a></li>
-        <li class="nav-item" role="presentation"><a class="nav-link" href="contact-us.html"
-            [routerLink]="['/contactus']">Contact Us</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/aboutus']">About Us</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/addcrop']">Add crop post</a></li>
         <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"
             [routerLink]="['/login']">Login</a></li> -->
         <app-logout></app-logout>
-        <li class="nav-item" role="presentation"><a class="nav-link active" [routerLink] = "['/register']">Register</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link active" [routerLink]="['/register']">Register</a>
+        </li>
       </ul>
     </div>
   </div>

@@ -1,0 +1,66 @@
+import { Component, OnInit } from '@angular/core';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
+
+@Component({
+  selector: 'app-addcrop',
+  templateUrl: './addcrop.component.html',
+  styleUrls: ['./addcrop.component.css']
+})
+export class AddcropComponent implements OnInit {
+
+  name = '';
+  quantity = 0;
+  biddingPrice = 0;
+  buyNow = 0;
+  description = '';
+  rooturl = 'https://microbits-bidding-api.herokuapp.com';
+  addedurl = '/api/bid/create?';
+  imageurl = 'http://dummyurlforcrops.com';
+  token: any;
+  res: any;
+  message = '';
+  isuploading = false;
+  headers: HttpHeaders;
+
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token');
+  }
+
+  ngOnInit() {
+  }
+
+  post() {
+    this.isuploading = true;
+
+    console.log(this.name);
+    console.log(this.quantity);
+    console.log(this.buyNow);
+    console.log(this.description);
+    console.log(this.biddingPrice);
+    console.log(this.imageurl);
+    // setTimeout( async () => {
+    //   this.isuploading = false;
+    // }, 3000);
+    const headers = new HttpHeaders().set('Content-Type', `application/json`);
+    this.http.post(this.rooturl + this.addedurl, {
+      item_name: this.name,
+      item_description: this.description,
+      image_url: this.imageurl,
+      min_price: this.biddingPrice,
+      buy_now_price: this.buyNow,
+      quantity: this.quantity,
+      token: this.token
+    }, { headers })
+    .subscribe(response => {
+      console.log(response);
+      this.isuploading = false;
+      this.res = response;
+      if (this.res.error === null) {
+        if (this.res.success === true) {
+          this.message = this.res.message.status;
+        }
+      }
+    });
+  }
+
+}
