@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -7,10 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ProductsComponent implements OnInit {
 
-  items = [1, 2, 3, 4, 5, 6, 7, 8];
-  constructor() { }
+  items = [];
+  rooturl = 'http://localhost:3000';
+  addedurl = '/api/bid?';
+  token: any;
+  res: any;
+  constructor(private http: HttpClient) {
+    this.token = localStorage.getItem('token');
+    http.post(this.rooturl + this.addedurl, { token : this.token})
+    .subscribe(response => {
+      this.res = response;
+      console.table(this.res.message.bids);
+      this.items = this.res.message.bids;
+    });
+   }
 
   ngOnInit() {
   }
 
+  savedetailsofitem(i) {
+    console.log('lets have sex baby');
+    console.log(i);
+    console.log(this.items[i]);
+    localStorage.setItem('pkey', this.items[i]._id);
+  }
 }
