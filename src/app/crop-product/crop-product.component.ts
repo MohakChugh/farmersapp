@@ -11,7 +11,7 @@ export class CropProductComponent implements OnInit {
   bidding = false;
   pkey: any;
   token: any;
-  rooturl = 'http://localhost:3000';
+  rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';
   data: any = {
     message : {

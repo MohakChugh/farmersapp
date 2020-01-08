@@ -9,7 +9,7 @@ import { Component, OnInit } from '@angular/core';
 export class ProductsComponent implements OnInit {
 
   items = [];
-  rooturl = 'http://localhost:3000';
+  rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid?';
   token: any;
   res: any;
