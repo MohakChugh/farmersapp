@@ -27,7 +27,6 @@ export class ProductsComponent implements OnInit {
   }
 
   savedetailsofitem(i) {
-    console.log('lets have sex baby');
     console.log(i);
     console.log(this.items[i]);
     localStorage.setItem('pkey', this.items[i]._id);
