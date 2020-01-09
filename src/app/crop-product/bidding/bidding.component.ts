@@ -66,7 +66,10 @@ export class BiddingComponent implements OnInit {
       buyer_id: this.buyerid
     }).subscribe(response => {
       this.res = response;
+      console.log(this.res);
       if (this.res.success === false) {
+        this.errorMessage = JSON.stringify(this.res.error);
+      } else if (this.res.success === true && this.res.error === 'cannot be sold') {
         this.errorMessage = JSON.stringify(this.res.error);
       } else {
         this.errorMessage = 'Bid Placed Successfully';
