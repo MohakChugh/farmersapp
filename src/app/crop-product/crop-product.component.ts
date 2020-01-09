@@ -44,7 +44,6 @@ export class CropProductComponent implements OnInit {
       bid_id: this.pkey
     }).subscribe(res => {
       this.data = res;
-      // console.log(this.data.message.bid);
       this.item = this.data.message.bid;
       console.log(this.item);
     });
