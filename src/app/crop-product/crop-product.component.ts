@@ -39,6 +39,7 @@ export class CropProductComponent implements OnInit {
   constructor(private http: HttpClient) {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
+    // sessionStorage.setItem('product', 'lololol');
     this.http.post(this.rooturl + this.addedurl, {
       token : this.token,
       bid_id: this.pkey
