@@ -1,12 +1,12 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, OnChanges } from '@angular/core';
 
 @Component({
   selector: 'app-bidding',
   templateUrl: './bidding.component.html',
   styleUrls: ['./bidding.component.css']
 })
-export class BiddingComponent implements OnInit {
+export class BiddingComponent implements OnInit, OnChanges {
 
   pkey: any;
   token: any;
@@ -35,6 +35,10 @@ export class BiddingComponent implements OnInit {
     this.requestmethod();
   }
 
+  ngOnChanges() {
+    this.requestmethod();
+  }
+
   requestmethod() {
     this.http.post(this.rooturl + this.addedurl, {
       token : this.token,
@@ -42,6 +46,7 @@ export class BiddingComponent implements OnInit {
     }).subscribe(res => {
       this.data = res;
       this.item = this.data.message.bid;
+      console.log(this.item);
     });
   }
 
@@ -77,8 +82,8 @@ export class BiddingComponent implements OnInit {
     });
     setTimeout(() => {
       this.errorMessage = '';
+      this.requestmethod();
     }, 5000);
-    this.requestmethod();
   }
 
 }
