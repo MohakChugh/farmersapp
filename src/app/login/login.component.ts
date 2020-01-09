@@ -25,6 +25,7 @@ export class LoginComponent implements OnInit {
 
   login() {
     this.isLoading = true;
+    localStorage.setItem('username', JSON.stringify(this.name.split('@')[0]));
     console.log(this.name);
     console.log(this.password);
     this.data = {
