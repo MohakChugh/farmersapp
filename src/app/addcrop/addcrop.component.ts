@@ -19,6 +19,8 @@ export class AddcropComponent implements OnInit {
   token: any;
   res: any;
   message = '';
+  // tslint:disable-next-line: variable-name
+  timer_limit: any;
   isuploading = false;
   headers: HttpHeaders;
 
@@ -49,6 +51,7 @@ export class AddcropComponent implements OnInit {
       min_price: this.biddingPrice,
       buy_now_price: this.buyNow,
       quantity: this.quantity,
+      timer_limit: this.timer_limit,
       token: this.token
     }, { headers })
     .subscribe(response => {
