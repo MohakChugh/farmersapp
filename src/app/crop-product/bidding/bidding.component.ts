@@ -77,7 +77,7 @@ export class BiddingComponent implements OnInit {
     });
     setTimeout(() => {
       this.errorMessage = '';
-    }, 2500);
+    }, 5000);
     this.requestmethod();
   }
 
