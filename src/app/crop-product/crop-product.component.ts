@@ -11,8 +11,11 @@ export class CropProductComponent implements OnInit {
   bidding = false;
   pkey: any;
   token: any;
+  time: Date;
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';
+  timeout = false;
+  endtime: any;
   data: any = {
     message : {
       bid : NaN,
@@ -47,6 +50,14 @@ export class CropProductComponent implements OnInit {
       this.data = res;
       this.item = this.data.message.bid;
       console.log(this.item);
+      // this.time = this.item.timer_end;
+      this.time = new Date();
+      this.endtime = new Date(this.item.timer_end)
+      if (this.time > this.endtime) {
+        this.timeout = true;
+      }
+      console.log(this.item.timer_end);
+      console.log(this.time);
     });
    }
 

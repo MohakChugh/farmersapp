@@ -14,6 +14,7 @@
             <h4 class="text-center"><span class="feature">{{item.name}}</span></h4>
             <p>{{item.description}}</p>
             <div class="features">
+              <p *ngIf="item.sold_flag" class="btn btn-danger">Item Already Sold!!!</p>
               <h4><span class="feature">Start Price:</span><span>{{item.price}}</span></h4>
             <h4><span class="feature">Current Bid:</span><span>{{item.curr_bidprice}}</span></h4>
             </div>
@@ -57,7 +58,7 @@
                   <div class="col-md-6">
                     <p class="text-muted" id="item_start_price">Start Price: <strong>{{item.price}}</strong></p>
                     <p class="text-muted" id="item_current_bid">Current Bid: <strong>{{item.curr_bidprice}}</strong></p>
-                  <p class="text-muted" id="item_current_bid">Buy Now Price: <strong>{{item.buy_now_price}}</strong></p>
+                  <p class="text-muted" id="item_current_bid">Buy Now Price: <strong>{{item.fixed_price}}</strong></p>
                   </div>
                 </div>
                 <hr>

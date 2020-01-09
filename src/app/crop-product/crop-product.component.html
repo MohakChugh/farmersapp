@@ -39,6 +39,10 @@
                   <!-- </a> -->
                 </button>
                 <div class="summary">
+                  <p *ngIf="item.sold_flag" class="btn btn-danger">Item Already Sold!!!</p>
+                  <br>
+                  <p *ngIf="!item.sold_flag">END TIME: {{this.endtime}}</p>
+                  <p *ngIf="timeout" class="btn btn-danger" >TIME EXPIRED</p>
                   <p>CurrentBid Price : {{ item.curr_bidprice }}</p>
                   <p>Current Highest Bidder : {{ item.curr_highestBidderusername }}</p>
                   <p>Description : {{ item.description }}</p>
