@@ -21,9 +21,6 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
   register() {
-    console.log(this.name);
-    console.log(this.email);
-    console.log(this.password);
     // Make an HTTP request for register
     // On registeration successful
     this.data = {
@@ -36,7 +33,6 @@ export class RegisterComponent implements OnInit {
 
     // const headers = new HttpHeaders().set('Content-Type', 'application/json');
     this.http.post(this.rooturl + this.addedurl, this.data, {responseType: 'text'}).subscribe(token => {
-      console.log(token);
       // tslint:disable-next-line: triple-equals
       if (token == 'Email link sent to verify email') {
         this.message = 'Please check your email to verify the Authenticated email';

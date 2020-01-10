@@ -16,13 +16,12 @@ export class RelatedProductsComponent implements OnInit {
 
   constructor(private http: HttpClient) {
     this.token = localStorage.getItem('token');
-    http.post(this.rooturl + this.addedurl, { token : this.token})
-    .subscribe(response => {
-      this.res = response;
-      console.table(this.res.message.bids);
-      this.items = this.res.message.bids;
-    });
-   }
+    http.post(this.rooturl + this.addedurl, { token: this.token })
+      .subscribe(response => {
+        this.res = response;
+        this.items = this.res.message.bids;
+      });
+  }
 
   ngOnInit() {
   }

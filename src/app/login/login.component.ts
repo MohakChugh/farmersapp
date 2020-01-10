@@ -26,8 +26,6 @@ export class LoginComponent implements OnInit {
   login() {
     this.isLoading = true;
     localStorage.setItem('username', JSON.stringify(this.name.split('@')[0]));
-    console.log(this.name);
-    console.log(this.password);
     this.data = {
       email: this.name,
       password: this.password
@@ -39,7 +37,6 @@ export class LoginComponent implements OnInit {
         throw new Error('EMAIL OR PASSWORD REQUIRED');
       }
       this.http.post(this.rooturl + '/loginuser', this.data, { headers }).subscribe(token => {
-        console.log(token);
         this.isLoading = false;
         // tslint:disable-next-line: triple-equals
         if (token == 'Email not verified') {

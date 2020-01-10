@@ -34,14 +34,12 @@ export class BiddingComponent implements OnInit, OnChanges {
   constructor(private http: HttpClient) {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
-    // sessionStorage.setItem('product', 'lololol');
     this.requestmethod();
   }
 
   ngOnInit() {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
-    // sessionStorage.setItem('product', 'lololol');
     this.requestmethod();
   }
 
@@ -56,7 +54,6 @@ export class BiddingComponent implements OnInit, OnChanges {
     }).subscribe(res => {
       this.data = res;
       this.item = this.data.message.bid;
-      console.log(this.item);
     });
   }
 
@@ -69,7 +66,6 @@ export class BiddingComponent implements OnInit, OnChanges {
   }
 
   placebid() {
-    console.log(this.bid_price);
     // Make Http request to save the details of bid
     this.token = localStorage.getItem('token');
     this.pkey = localStorage.getItem('pkey');
@@ -81,7 +77,6 @@ export class BiddingComponent implements OnInit, OnChanges {
       buyer_id: this.buyerid
     }).subscribe(response => {
       this.res = response;
-      console.log(this.res);
       if (this.res.success === false) {
         this.errorFlag = true;
         this.errorMessage = JSON.stringify(this.res.error);

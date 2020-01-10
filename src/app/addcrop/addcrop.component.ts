@@ -33,16 +33,6 @@ export class AddcropComponent implements OnInit {
 
   post() {
     this.isuploading = true;
-
-    console.log(this.name);
-    console.log(this.quantity);
-    console.log(this.buyNow);
-    console.log(this.description);
-    console.log(this.biddingPrice);
-    console.log(this.imageurl);
-    // setTimeout( async () => {
-    //   this.isuploading = false;
-    // }, 3000);
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
     this.http.post(this.rooturl + this.addedurl, {
       item_name: this.name,
@@ -55,7 +45,6 @@ export class AddcropComponent implements OnInit {
       token: this.token
     }, { headers })
     .subscribe(response => {
-      console.log(response);
       this.isuploading = false;
       this.res = response;
       if (this.res.error === null) {

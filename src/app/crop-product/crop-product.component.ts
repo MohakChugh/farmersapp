@@ -17,8 +17,8 @@ export class CropProductComponent implements OnInit {
   timeout = false;
   endtime: any;
   data: any = {
-    message : {
-      bid : NaN,
+    message: {
+      bid: NaN,
       curr_bidprice: NaN,
       curr_highestBidderusername: NaN,
       description: NaN,
@@ -28,37 +28,32 @@ export class CropProductComponent implements OnInit {
     }
   };
   item: any = {
-      bid : NaN,
-      curr_bidprice: NaN,
-      curr_highestBidderusername: NaN,
-      description: NaN,
-      fixed_price: NaN,
-      quantity: NaN,
-      name: NaN,
-      sold_flag: NaN
+    bid: NaN,
+    curr_bidprice: NaN,
+    curr_highestBidderusername: NaN,
+    description: NaN,
+    fixed_price: NaN,
+    quantity: NaN,
+    name: NaN,
+    sold_flag: NaN
   };
 
   constructor(private http: HttpClient) {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
-    // sessionStorage.setItem('product', 'lololol');
     this.http.post(this.rooturl + this.addedurl, {
-      token : this.token,
+      token: this.token,
       bid_id: this.pkey
     }).subscribe(res => {
       this.data = res;
       this.item = this.data.message.bid;
-      console.log(this.item);
-      // this.time = this.item.timer_end;
       this.time = new Date();
       this.endtime = new Date(this.item.timer_end);
       if (this.time > this.endtime) {
         this.timeout = true;
       }
-      console.log(this.item.timer_end);
-      console.log(this.time);
     });
-   }
+  }
 
   ngOnInit() {
   }

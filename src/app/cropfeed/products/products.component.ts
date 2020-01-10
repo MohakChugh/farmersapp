@@ -18,7 +18,6 @@ export class ProductsComponent implements OnInit {
     http.post(this.rooturl + this.addedurl, { token : this.token})
     .subscribe(response => {
       this.res = response;
-      console.table(this.res.message.bids);
       this.items = this.res.message.bids;
     });
    }
@@ -27,8 +26,6 @@ export class ProductsComponent implements OnInit {
   }
 
   savedetailsofitem(i) {
-    console.log(i);
-    console.log(this.items[i]);
     localStorage.setItem('pkey', this.items[i]._id);
   }
 }
