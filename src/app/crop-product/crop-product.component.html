@@ -16,11 +16,10 @@
           <div class="row">
             <div class="col-md-6">
               <div class="gallery">
-                <div class="sp-wrap"><a href="assets/img/tech/image2.jpg"><img class="img-fluid d-block mx-auto"
-                      src="assets/img/tech/image2.jpg"></a><a href="assets/img/tech/image2.jpg"><img
-                      class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a><a
-                    href="assets/img/tech/image2.jpg"><img class="img-fluid d-block mx-auto"
-                      src="assets/img/tech/image2.jpg"></a></div>
+                <div class="img-fluid" alt="Responsive image"><a
+                    href="https://m.economictimes.com/thumb/67089794.cms?height=480&width=640&resizemode=1"><img
+                      class="img-fluid d-block mx-auto"
+                      src="https://m.economictimes.com/thumb/67089794.cms?height=480&width=640&resizemode=1"></a></div>
               </div>
             </div>
             <div class="col-md-6">
@@ -34,15 +33,13 @@
                 </div><button class="btn btn-primary" type="button"><i class="icon-basket"></i>Buy Immediately</button>
                 <br>
                 <button class="btn btn-primary" type="button" (click)="togglebidding()">
-                  <!-- <a [routerLink]="['/bidding']"> -->
-                    <i class="icon-basket"></i>Start Bidding
-                  <!-- </a> -->
+                  <i class="icon-basket"></i>Start Bidding
                 </button>
                 <div class="summary">
-                  <p *ngIf="item.sold_flag" class="btn btn-danger">Item Already Sold!!!</p>
+                  <p *ngIf="item.sold_flag" class="alert alert-danger">Item Already Sold!!!</p>
                   <br>
                   <p *ngIf="!item.sold_flag">END TIME: {{this.endtime}}</p>
-                  <p *ngIf="timeout" class="btn btn-danger" >TIME EXPIRED</p>
+                  <p *ngIf="timeout" class="alert alert-danger">TIME EXPIRED</p>
                   <p>CurrentBid Price : {{ item.curr_bidprice }}</p>
                   <p>Current Highest Bidder : {{ item.curr_highestBidderusername }}</p>
                   <p>Description : {{ item.description }}</p>

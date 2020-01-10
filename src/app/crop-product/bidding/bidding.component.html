@@ -14,7 +14,7 @@
             <h4 class="text-center"><span class="feature">{{item.name}}</span></h4>
             <p>{{item.description}}</p>
             <div class="features">
-              <p *ngIf="item.sold_flag" class="btn btn-danger">Item Already Sold!!!</p>
+              <p *ngIf="item.sold_flag" class="alert alert-danger">Item Already Sold!!!</p>
               <h4><span class="feature">Start Price:</span><span>{{item.price}}</span></h4>
               <h4><span class="feature">Current Bid:</span><span></span></h4>
             </div>
