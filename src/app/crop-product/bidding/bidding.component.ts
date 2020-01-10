@@ -22,6 +22,7 @@ export class BiddingComponent implements OnInit, OnChanges {
     sold_flag: NaN
   };
   buyerid: any;
+  errorFlag = false;
   errorMessage: string;
 
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
@@ -82,8 +83,10 @@ export class BiddingComponent implements OnInit, OnChanges {
       this.res = response;
       console.log(this.res);
       if (this.res.success === false) {
+        this.errorFlag = true;
         this.errorMessage = JSON.stringify(this.res.error);
       } else if (this.res.success === true && this.res.error === 'cannot be sold') {
+        this.errorFlag = true;
         this.errorMessage = JSON.stringify(this.res.error);
       } else {
         this.errorMessage = 'Bid Placed Successfully';
