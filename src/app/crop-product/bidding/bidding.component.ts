@@ -11,7 +11,16 @@ export class BiddingComponent implements OnInit, OnChanges {
   pkey: any;
   token: any;
   data: any;
-  item: any;
+  item: any = {
+    bid: NaN,
+    curr_bidprice: NaN,
+    curr_highestBidderusername: NaN,
+    description: NaN,
+    fixed_price: NaN,
+    quantity: NaN,
+    name: NaN,
+    sold_flag: NaN
+  };
   buyerid: any;
   errorMessage: string;
 
@@ -26,7 +35,7 @@ export class BiddingComponent implements OnInit, OnChanges {
     this.token = localStorage.getItem('token');
     // sessionStorage.setItem('product', 'lololol');
     this.requestmethod();
-   }
+  }
 
   ngOnInit() {
     this.pkey = localStorage.getItem('pkey');
@@ -41,7 +50,7 @@ export class BiddingComponent implements OnInit, OnChanges {
 
   requestmethod() {
     this.http.post(this.rooturl + this.addedurl, {
-      token : this.token,
+      token: this.token,
       bid_id: this.pkey
     }).subscribe(res => {
       this.data = res;

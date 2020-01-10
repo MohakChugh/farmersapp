@@ -1,11 +1,11 @@
 <div class="row no-gutters">
   <!--  -->
   <div class="col-12 col-md-6 col-lg-4" *ngFor="let item of items; index as i">
-
-
     <div class="clean-product-item">
-      <div class="image"><a (click)="savedetailsofitem(i)" [routerLink] = "['/cropproduct']"><img class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
-      <div class="product-name"><a (click)="savedetailsofitem(i)" [routerLink] = "['/cropproduct']">{{item.name}}</a></div>
+      <div class="image"><a (click)="savedetailsofitem(i)" [routerLink]="['/cropproduct']"><img
+            class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
+      <div class="product-name"><a (click)="savedetailsofitem(i)" [routerLink]="['/cropproduct']">{{item.name}}</a>
+      </div>
       <div class="about">
         <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img
             src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg">

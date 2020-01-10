@@ -44,7 +44,7 @@
                 <hr>
                 <div class="row">
                   <div class="col-md-6">
-                  <p class="text-muted">Current Highest Bidder: {{item.curr_highestBidderusername}}</p>
+                  <p class="text-muted btn">Current Highest Bidder: {{item.curr_highestBidderusername}}</p>
                     <p class="text-muted">Seller Rating:
                       <i class="fa fa-star" style="color:gold"></i>
                       <i class="fa fa-star" style="color:gold"></i>
@@ -69,7 +69,7 @@
                     <span class="btn btn-light" id="decrement" (click)="increaseby1()"><i class="fa fa-minus"></i> +</span>
                     <input [(ngModel)]="bid_price" [value]="bid_price" name="bid_price" id="bid_price" type="number" placeholder="0" default="0" />
                     <span class="btn btn-light" id="increment" (click)="decreaseby1()"><i class="fa fa-plus"></i> -</span>
-                  <p class="btn"> {{ errorMessage }}</p>
+                  <p class="btn btn-danger"> {{ errorMessage }}</p>
                     <button class="btn btn-dark" type="submit" (click)="placebid()">Place Bid</button>
                   </form>
                   <p class="text-muted">Note: Bid will be valid only if bid price is greater than current bid.<p>

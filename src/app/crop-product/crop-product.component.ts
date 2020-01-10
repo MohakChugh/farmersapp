@@ -28,15 +28,14 @@ export class CropProductComponent implements OnInit {
     }
   };
   item: any = {
-    message : {
       bid : NaN,
       curr_bidprice: NaN,
       curr_highestBidderusername: NaN,
       description: NaN,
       fixed_price: NaN,
       quantity: NaN,
-      name: NaN
-    }
+      name: NaN,
+      sold_flag: NaN
   };
 
   constructor(private http: HttpClient) {
