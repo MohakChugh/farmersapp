@@ -6,6 +6,8 @@
             class="img-fluid d-block mx-auto" src="assets/img/tech/image2.jpg"></a></div>
       <div class="product-name"><a (click)="savedetailsofitem(i)" [routerLink]="['/cropproduct']">{{item.name}}</a>
       </div>
+      <div *ngIf="items[i].sold_flag == 1" class="alert alert-danger"> Item Sold</div>
+      <div *ngIf="timeout[i]" class="alert alert-danger"> Bid Expired</div>
       <div class="about">
         <div class="rating"><img src="assets/img/star.svg"><img src="assets/img/star.svg"><img
             src="assets/img/star.svg"><img src="assets/img/star-half-empty.svg"><img src="assets/img/star-empty.svg">

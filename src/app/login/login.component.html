@@ -16,7 +16,7 @@
                     <div class="form-check"><input class="form-check-input" type="checkbox" id="checkbox"><label
                             class="form-check-label" for="checkbox">Remember me</label></div>
                 </div> -->
-                <p *ngIf="isLoading" class="btn dark" style="text-align: center;">Loading!!!!!</p>
+                <p *ngIf="isLoading" class="alert alert-primary" style="text-align: center;">Loading!!!!!</p>
 
                 <button class="btn btn-primary btn-block" type="submit" (click)="login()">Log In</button>
                 <p class="btn">{{ message }}</p>
