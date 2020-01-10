@@ -51,7 +51,7 @@ export class CropProductComponent implements OnInit {
       console.log(this.item);
       // this.time = this.item.timer_end;
       this.time = new Date();
-      this.endtime = new Date(this.item.timer_end)
+      this.endtime = new Date(this.item.timer_end);
       if (this.time > this.endtime) {
         this.timeout = true;
       }
