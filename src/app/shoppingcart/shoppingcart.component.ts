@@ -11,7 +11,16 @@ export class ShoppingcartComponent implements OnInit {
   pkey: any;
   token: any;
   data: any;
-  item: any;
+  item: any = {
+    bid: NaN,
+    curr_bidprice: NaN,
+    curr_highestBidderusername: NaN,
+    description: NaN,
+    fixed_price: NaN,
+    quantity: NaN,
+    name: NaN,
+    sold_flag: NaN
+  };
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';
   constructor(private http: HttpClient) { }
@@ -26,6 +35,7 @@ export class ShoppingcartComponent implements OnInit {
     }).subscribe(res => {
       this.data = res;
       this.item = this.data.message.bid;
+      console.log(this.item);
     });
   }
 

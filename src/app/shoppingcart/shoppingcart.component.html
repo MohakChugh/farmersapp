@@ -15,14 +15,11 @@
                                 <div class="row justify-content-center align-items-center">
                                     <div class="col-md-3">
                                         <div class="product-image"><img class="img-fluid d-block mx-auto image"
-                                                src="assets/img/tech/image2.jpg"></div>
+                                                src="https://m.economictimes.com/thumb/67089794.cms?height=480&width=640&resizemode=1"></div>
                                     </div>
-                                    <div class="col-md-5 product-info"><a class="product-name" href="#">Lorem Ipsum
-                                            dolor</a>
+                                    <div class="col-md-5 product-info"><a class="product-name" href="#">{{item.name}}</a>
                                         <div class="product-specs">
-                                            <div><span>Crop Name:&nbsp;</span><span class="value">{{item.name}}</span></div>
                                             <div><span>Description:&nbsp;</span><span class="value">{{item.description}}</span></div>
-                                            <!-- <div><span>Memory:&nbsp;</span><span class="value">32GB</span></div> -->
                                         </div>
                                     </div>
                                     <div class="col-6 col-md-2 quantity"><label class="d-none d-md-block"
@@ -36,10 +33,10 @@
                     <div class="col-md-12 col-lg-4">
                         <div class="summary">
                             <h3>Summary</h3>
-                            <h4><span class="text">Subtotal</span><span class="price">{{ item.price }}</span></h4>
+                            <h4><span class="text">Subtotal</span><span class="price">{{ item.curr_bidprice }}</span></h4>
                             <h4><span class="text">Discount</span><span class="price">0</span></h4>
                             <h4><span class="text">Shipping</span><span class="price">0</span></h4>
-                            <h4><span class="text">Total</span><span class="price">{{item.price}}</span></h4><button
+                            <h4><span class="text">Total</span><span class="price">{{item.curr_bidprice}}</span></h4><button
                                 class="btn btn-primary btn-block btn-lg" type="button" (click)="saveamount()" [routerLink]="['/payment']">Checkout</button>
                         </div>
                     </div>
