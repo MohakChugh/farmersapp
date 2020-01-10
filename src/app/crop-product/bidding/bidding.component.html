@@ -74,7 +74,7 @@
                     </span>
                     <br>
                     <div *ngIf="errorFlag" class="alert alert-danger" role="alert">{{ errorMessage }}</div>
-                    <div *ngIf="!errorFlag" class="alert alert-success" role="alert">{{ errorMessage }}</div>
+                    <div *ngIf="!errorFlag && errorMessage != ''" class="alert alert-success" role="alert">{{ errorMessage }}</div>
                     <button class="btn btn-dark" type="submit" (click)="placebid()">Place Bid</button>
                   </form>
                   <p class="text-muted">Note: Bid will be valid only if bid price is greater than current bid.<p>

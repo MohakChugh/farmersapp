@@ -23,7 +23,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   };
   buyerid: any;
   errorFlag = false;
-  errorMessage: string;
+  errorMessage = '';
 
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';

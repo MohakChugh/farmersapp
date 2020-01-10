@@ -27,9 +27,7 @@ export class ProductsComponent implements OnInit {
         for (let index = 0; index < this.items.length; index++) {
           const element = this.items[index];
           this.time = new Date();
-          console.log(this.time)
           this.endtime[index] = new Date(element.timer_end);
-          console.log(this.endtime[index]);
           if (this.time > this.endtime[index]) {
             this.timeout[index] = true;
           }
