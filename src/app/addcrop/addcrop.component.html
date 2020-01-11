@@ -14,8 +14,8 @@
         <div class="form-group"><label>Buy Now Price</label><input [(ngModel)]="buyNow" name="buyNow" class="form-control" type="number"></div>
         <div class="form-group"><label>Description</label><input [(ngModel)]="description" name="description" class="form-control" type="text"></div>
         <div class="form-group"><label>Hours for the Bid</label><input [(ngModel)]="timer_limit" name="timer_limit" class="form-control" type="text"></div>
-        <div class="form-group"><p *ngIf="isuploading"> Uploading Details, Please Wait!</p></div>
-        <div class="form-group"><p *ngIf="!isuploading">{{ message }}</p></div>
+        <div class="form-group"><p *ngIf="isuploading" class="alert alert-success"> Uploading Details, Please Wait!</p></div>
+        <div class="form-group"><p *ngIf="!isuploading && message != ''" class="alert alert-success">{{ message }}</p></div>
         <div></div>
         <div class="form-group"><button class="btn btn-primary btn-block" type="submit" (click)="post()">Send</button></div>
       </form>

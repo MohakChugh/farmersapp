@@ -50,6 +50,9 @@ export class AddcropComponent implements OnInit {
       if (this.res.error === null) {
         if (this.res.success === true) {
           this.message = this.res.message.status;
+          setTimeout(() => {
+            this.message = '';
+          }, 5000);
         }
       }
     });
