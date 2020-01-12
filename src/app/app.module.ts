@@ -23,7 +23,6 @@ import { environment } from '../environments/environment';
 import { LogoutComponent } from './navbar/logout/logout.component';
 import { AddcropComponent } from './addcrop/addcrop.component';
 
-
 @NgModule({
   declarations: [
     AppComponent,
