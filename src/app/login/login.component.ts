@@ -9,7 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
-  otp = true;
+  otp = false;
   constructor(private router: Router, private http: HttpClient) {
     if (!!localStorage.getItem('token')) {
       router.navigate(['/feed']);
@@ -65,5 +65,9 @@ export class LoginComponent implements OnInit {
       this.message = err;
       console.log(err);
     }
+  }
+
+  toggleotp() {
+    this.otp = true;
   }
 }

@@ -4,6 +4,7 @@
         <div class="container">
             <div class="block-heading" id="loginComp">
                 <h2 style="margin-top: 7rem;" class="text-info">Log In</h2>
+                <br><br>
                 <p>Please Login as the following member: <br></p>
                 <p>1. Farmer</p>
                 <p>2. Contractor</p>
@@ -15,6 +16,9 @@
                 <p *ngIf="isLoading" class="alert alert-primary" style="text-align: center;">Loading!!!!!</p>
                 <p *ngIf="message != ''" class="alert alert-danger">{{ message }}</p>
                 <button class="btn btn-primary btn-block" type="submit" (click)="login()">Log In</button>
+                <button class="btn btn-success btn-block" (click)="toggleotp()">LOGIN USING OTP</button>
+                
+                <br>
             </form>
         </div>
     </section>
