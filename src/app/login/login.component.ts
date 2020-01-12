@@ -64,9 +64,5 @@ export class LoginComponent implements OnInit {
       this.message = err;
       console.log(err);
     }
-    // this.isLoading = false;
-    // setTimeout(() => {
-    //   this.message = 'This is some error from ourside. Please try again later';
-    // }, 10000);
   }
 }
