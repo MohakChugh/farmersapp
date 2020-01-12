@@ -9,6 +9,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
+  otp = true;
   constructor(private router: Router, private http: HttpClient) {
     if (!!localStorage.getItem('token')) {
       router.navigate(['/feed']);
@@ -47,10 +48,10 @@ export class LoginComponent implements OnInit {
           // tslint:disable-next-line: triple-equals
         } else if (token == 'The email address is badly formatted.') {
           this.message = 'The email address is badly formatted';
-        // tslint:disable-next-line: triple-equals
+          // tslint:disable-next-line: triple-equals
         } else if (token == 'There is no user record corresponding to this identifier. The user may have been deleted.') {
           this.message = 'User does not exist. Please check';
-        // tslint:disable-next-line: triple-equals
+          // tslint:disable-next-line: triple-equals
         } else if (token == 'signInWithEmailAndPassword failed: First argument "email" must be a valid string.') {
           this.message = 'First argument "email" must be a valid string.';
         } else {

@@ -1,5 +1,5 @@
-<app-navbar></app-navbar>
-<main class="page login-page">
+<app-navbar></app-navbar> 
+<main class="page login-page" *ngIf="!otp">
     <section class="clean-block clean-form dark">
         <div class="container">
             <div class="block-heading" id="loginComp">
@@ -19,4 +19,5 @@
         </div>
     </section>
 </main>
+<app-otp *ngIf="otp"></app-otp>
 <app-footer></app-footer>

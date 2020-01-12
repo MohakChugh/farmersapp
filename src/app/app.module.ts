@@ -22,6 +22,7 @@ import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 import { LogoutComponent } from './navbar/logout/logout.component';
 import { AddcropComponent } from './addcrop/addcrop.component';
+import { OtpComponent } from './login/otp/otp.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { AddcropComponent } from './addcrop/addcrop.component';
     RelatedProductsComponent,
     BiddingComponent,
     LogoutComponent,
-    AddcropComponent
+    AddcropComponent,
+    OtpComponent
   ],
   imports: [
     BrowserModule,
