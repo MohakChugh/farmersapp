@@ -7,7 +7,8 @@ import { Component, OnInit, OnChanges } from '@angular/core';
   styleUrls: ['./bidding.component.css']
 })
 export class BiddingComponent implements OnInit, OnChanges {
-
+  // tslint:disable-next-line: variable-name
+  bid_price = 0;
   pkey: any;
   token: any;
   data: any;
@@ -24,13 +25,12 @@ export class BiddingComponent implements OnInit, OnChanges {
   buyerid: any;
   errorFlag = false;
   errorMessage = '';
-
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';
   biddingurl = '/api/bid/place?';
-  // tslint:disable-next-line: variable-name
-  bid_price = 0;
   res: any;
+  sms = ``;
+
   constructor(private http: HttpClient) {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
@@ -45,6 +45,17 @@ export class BiddingComponent implements OnInit, OnChanges {
 
   ngOnChanges() {
     this.requestmethod();
+  }
+
+  notifysms(name , bidprice) {
+    this.sms = `Hi, the current price of your bid ${name} is ${bidprice}`;
+    // Phone Number hardcoded to 9810178257
+    this.http.post('https://dry-harbor-38701.herokuapp.com/sendsms', {
+      phone_number: 9810178257,
+      sms: this.sms
+    }).subscribe(res => {
+      console.log(res);
+    });
   }
 
   requestmethod() {
@@ -85,6 +96,7 @@ export class BiddingComponent implements OnInit, OnChanges {
         this.errorMessage = JSON.stringify(this.res.error);
       } else {
         this.errorMessage = 'Bid Placed Successfully';
+        this.notifysms(this.buyerid, this.bid_price);
       }
     });
     setTimeout(() => {
