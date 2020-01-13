@@ -23,6 +23,8 @@ import { environment } from '../environments/environment';
 import { LogoutComponent } from './navbar/logout/logout.component';
 import { AddcropComponent } from './addcrop/addcrop.component';
 import { OtpComponent } from './login/otp/otp.component';
+import { OrdersComponent } from './orders/orders.component';
+import { DeliveryComponent } from './delivery/delivery.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { OtpComponent } from './login/otp/otp.component';
     BiddingComponent,
     LogoutComponent,
     AddcropComponent,
-    OtpComponent
+    OtpComponent,
+    OrdersComponent,
+    DeliveryComponent
   ],
   imports: [
     BrowserModule,
