@@ -1,29 +1,16 @@
 <nav class="navbar navbar-light navbar-expand-lg fixed-top bg-white clean-navbar">
-  <div class="container"><a class="navbar-brand logo" href="#">Farmers App</a><button data-toggle="collapse"
+  <div class="container"><a class="navbar-brand logo" [routerLink]="['/feed']">AgriTech</a><button data-toggle="collapse"
       class="navbar-toggler" data-target="#navcol-1"><span class="sr-only">Toggle navigation</span><span
         class="navbar-toggler-icon"></span></button>
     <div class="collapse navbar-collapse" id="navcol-1">
       <ul class="nav navbar-nav ml-auto">
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="index.html">Home</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="catalog-page.html">Catalog</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="service-page.html">Services</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="features.html">Features</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="pricing.html">Pricing</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="gallery.html">Gallery</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="slider.html">Slider</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="testimonials.html">Testimonials</a> -->
-        <!-- </li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="faq.html">FAQ</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post-list.html">Blog</a></li> -->
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="blog-post.html" >Blog Post</a></li> -->
-        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/feed']">Product</a></li>
+        <!-- <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/feed']">Product</a></li> -->
         <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/payment']">Payment</a></li>
         <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/cart']">Shopping Cart</a>
         </li>
-        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/aboutus']">About Us</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/order']">Orders</a></li>
+        <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/delivery']">Delivery Update</a></li>
         <li class="nav-item" role="presentation"><a class="nav-link" [routerLink]="['/addcrop']">Add crop post</a></li>
-        <!-- <li class="nav-item" role="presentation"><a class="nav-link" href="login.html"
-            [routerLink]="['/login']">Login</a></li> -->
         <app-logout></app-logout>
         <li class="nav-item" role="presentation"><a class="nav-link active" [routerLink]="['/register']">Register</a>
         </li>

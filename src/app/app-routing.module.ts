@@ -9,6 +9,8 @@ import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import { BiddingComponent } from './crop-product/bidding/bidding.component';
 import { AuthGuard } from './auth.guard';
 import { AddcropComponent } from './addcrop/addcrop.component';
+import { DeliveryComponent } from './delivery/delivery.component';
+import { OrdersComponent } from './orders/orders.component';
 
 const routes: Routes = [
   { path: '', component : LoginComponent },
@@ -19,6 +21,8 @@ const routes: Routes = [
   { path: 'payment', component: PaymentComponent, canActivate: [AuthGuard] },
   { path: 'cart', component: ShoppingcartComponent, canActivate: [AuthGuard] },
   { path: 'bidding', component: BiddingComponent, canActivate: [AuthGuard] },
+  { path: 'delivery', component: DeliveryComponent, canActivate: [AuthGuard] },
+  { path: 'order', component: OrdersComponent, canActivate: [AuthGuard] },
   { path: 'addcrop', component: AddcropComponent, canActivate: [AuthGuard] }
 ];
 
