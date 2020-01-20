@@ -78,9 +78,7 @@ export class BiddingComponent implements OnInit, OnChanges {
 
   placebid() {
     // Make Http request to save the details of bid
-    this.token = localStorage.getItem('token');
-    this.pkey = localStorage.getItem('pkey');
-    this.buyerid = localStorage.getItem('username');
+    this.cookiegetter();
     this.http.post(this.rooturl + this.biddingurl, {
       token: this.token,
       bid_id: this.pkey,
@@ -99,10 +97,19 @@ export class BiddingComponent implements OnInit, OnChanges {
         this.notifysms(this.buyerid, this.bid_price);
       }
     });
+    this.timer();
+  }
+
+  private timer() {
     setTimeout(() => {
       this.errorMessage = '';
       this.requestmethod();
     }, 5000);
   }
 
+  private cookiegetter() {
+    this.token = localStorage.getItem('token');
+    this.pkey = localStorage.getItem('pkey');
+    this.buyerid = localStorage.getItem('username');
+  }
 }
