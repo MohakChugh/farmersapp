@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from '../data.service';
 
 @Component({
   selector: 'app-cropfeed',
@@ -7,9 +8,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CropfeedComponent implements OnInit {
 
-  constructor() { }
+  dataState: any;
+
+  constructor(private dataService: DataService) {
+  }
 
   ngOnInit() {
+    this.dataService.getData.subscribe(data => this.dataState = data);
   }
 
   fetchcontentpage(n: number) {

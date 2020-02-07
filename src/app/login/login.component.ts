@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { DataService } from '../data.service';
+
 
 @Component({
   selector: 'app-login',
@@ -9,9 +11,15 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 })
 export class LoginComponent implements OnInit {
 
+  dataState: any;
   otp = false;
-  constructor(private router: Router, private http: HttpClient) {
+  constructor(
+    private router: Router,
+    private http: HttpClient,
+    private dataService: DataService
+  ) {
     if (!!localStorage.getItem('token')) {
+      this.dataService.setdata('token', localStorage.getItem('token'))
       router.navigate(['/feed']);
     }
   }
@@ -21,12 +29,15 @@ export class LoginComponent implements OnInit {
   rooturl = 'https://dry-harbor-38701.herokuapp.com';
   isLoading = false;
   message = '';
+
   ngOnInit() {
+    this.dataService.getData.subscribe(data => this.dataState = data);
   }
 
   login() {
     this.isLoading = true;
     localStorage.setItem('username', JSON.stringify(this.name.split('@')[0]));
+    this.dataService.setdata('username', JSON.stringify(this.name.split('@')[0]));
     this.data = {
       email: this.name,
       password: this.password
@@ -56,6 +67,8 @@ export class LoginComponent implements OnInit {
           this.message = 'First argument "email" must be a valid string.';
         } else {
           localStorage.setItem('token', JSON.stringify(token));
+          this.dataService.setdata('token', JSON.stringify(token));
+          console.log(this.dataService);
           this.router.navigate(['/feed']);
         }
       });

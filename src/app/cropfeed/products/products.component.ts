@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-products',
@@ -7,6 +8,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./products.component.css']
 })
 export class ProductsComponent implements OnInit {
+
+  dataState: any;
 
   items = [];
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
@@ -17,13 +20,19 @@ export class ProductsComponent implements OnInit {
   endtime: Array<Date> = [new Date()];
   time: Date;
 
-  constructor(private http: HttpClient) {
+
+  ngOnInit() {
+    this.data.getData.subscribe(data => this.dataState = data);
+  }
+
+  constructor(private http: HttpClient, private data: DataService) {
     this.token = localStorage.getItem('token');
     http.post(this.rooturl + this.addedurl, { token: this.token })
       .subscribe(response => {
         this.res = response;
         this.items = this.res.message.bids;
-        console.table(this.items);
+        this.data.setdata('items', this.items);
+        // console.table(this.data.getter().items);
         for (let index = 0; index < this.items.length; index++) {
           const element = this.items[index];
           this.time = new Date();
@@ -35,10 +44,10 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-  ngOnInit() {
-  }
 
   savedetailsofitem(i) {
     localStorage.setItem('pkey', this.items[i]._id);
+    this.data.setdata('pkey', this.items[i]._id);
+    // console.log(this.data.getter().pkey);
   }
 }

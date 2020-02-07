@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnChanges } from '@angular/core';
+import { DataService } from 'src/app/data.service';
 
 @Component({
   selector: 'app-bidding',
@@ -31,15 +32,20 @@ export class BiddingComponent implements OnInit, OnChanges {
   res: any;
   sms = ``;
 
-  constructor(private http: HttpClient) {
-    this.pkey = localStorage.getItem('pkey');
-    this.token = localStorage.getItem('token');
+  constructor(private http: HttpClient, private DataService: DataService) {
+    // this.pkey = localStorage.getItem('pkey');
+    this.pkey = this.DataService.getter().pkey;
+    // this.token = localStorage.getItem('token');
+    this.token = this.DataService.getter().token;
     this.requestmethod();
   }
 
   ngOnInit() {
-    this.pkey = localStorage.getItem('pkey');
-    this.token = localStorage.getItem('token');
+    // this.pkey = localStorage.getItem('pkey');
+    this.pkey = this.DataService.getter().pkey;
+
+    this.token = this.DataService.getter().token;
+    // this.token = localStorage.getItem('token');
     this.requestmethod();
   }
 
@@ -50,22 +56,26 @@ export class BiddingComponent implements OnInit, OnChanges {
   notifysms(name , bidprice) {
     this.sms = `Hi, the current price of your bid ${name} is ${bidprice}`;
     // Phone Number hardcoded to 9810178257
-    this.http.post('https://dry-harbor-38701.herokuapp.com/sendsms', {
-      phone_number: 9810178257,
-      sms: this.sms
-    }).subscribe(res => {
-      console.log(res);
-    });
+    // this.http.post('https://dry-harbor-38701.herokuapp.com/sendsms', {
+    //   phone_number: 9810178257,
+    //   sms: this.sms
+    // }).subscribe(res => {
+    //   console.log(res);
+    // });
   }
 
   requestmethod() {
-    this.http.post(this.rooturl + this.addedurl, {
-      token: this.token,
-      bid_id: this.pkey
-    }).subscribe(res => {
-      this.data = res;
-      this.item = this.data.message.bid;
-    });
+    // this.http.post(this.rooturl + this.addedurl, {
+    //   token: this.token,
+    //   bid_id: this.pkey
+    // }).subscribe(res => {
+    //   this.data = res;
+    //   console.log(this.data);
+    //   this.item = this.data.message.bid;
+    // });
+
+    this.item = this.DataService.getCrop(this.pkey);
+
   }
 
   increaseby1() {
@@ -95,6 +105,8 @@ export class BiddingComponent implements OnInit, OnChanges {
       } else {
         this.errorMessage = 'Bid Placed Successfully';
         this.notifysms(this.buyerid, this.bid_price);
+        this.updateValueOfBid(this.bid_price);
+        this.DataService.updateValue(this.pkey, this.item);
       }
     });
     this.timer();
@@ -107,9 +119,21 @@ export class BiddingComponent implements OnInit, OnChanges {
     }, 5000);
   }
 
+  private updateValueOfBid(bid: any) {
+    this.item.curr_bidprice = bid;
+  }
+
   private cookiegetter() {
-    this.token = localStorage.getItem('token');
-    this.pkey = localStorage.getItem('pkey');
-    this.buyerid = localStorage.getItem('username');
+    // this.pkey = localStorage.getItem('pkey');
+    // this.buyerid = localStorage.getItem('username');
+    this.token = this.DataService.getter().token || localStorage.getItem('token');
+    this.pkey = this.DataService.getter().pkey;
+    this.buyerid = this.DataService.getter().username || localStorage.getItem('username');
+
+    console.group('Checking required fields');
+    console.log(this.token);
+    console.log(this.pkey);
+    console.log(this.buyerid);
+    console.groupEnd();
   }
 }
