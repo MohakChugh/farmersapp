@@ -19,6 +19,7 @@ export class AddcropComponent implements OnInit {
   token: any;
   res: any;
   message = '';
+  time: any;
   // tslint:disable-next-line: variable-name
   timer_limit: any;
   isuploading = false;
@@ -33,6 +34,9 @@ export class AddcropComponent implements OnInit {
 
   post() {
     this.isuploading = true;
+    this.time = this.timer_limit;
+    this.timer_limit = `${this.time}:00:00`;
+    // this.timer_limit = JSON.parse(this.timer_limit);
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
     this.http.post(this.rooturl + this.addedurl, {
       item_name: this.name,
