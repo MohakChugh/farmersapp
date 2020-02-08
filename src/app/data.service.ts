@@ -23,9 +23,9 @@ export class DataService {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.data.items.length; i++) {
       if (this.data.items[i]._id === pkey) {
-        console.group('Get Crop from Service');
-        console.log(this.data.items[i]);
-        console.groupEnd();
+        // console.group('Get Crop from Service');
+        // console.log(this.data.items[i]);
+        // console.groupEnd();
         return this.data.items[i];
       }
     }
@@ -35,9 +35,9 @@ export class DataService {
     for (let i = 0; i < this.data.items.length; i++) {
       if (this.data.items[i]._id === pkey) {
         this.data.items[i] = newData;
-        console.groupCollapsed('Updated value of crop array');
-        console.log(this.data.items);
-        console.groupEnd();
+        // console.groupCollapsed('Updated value of crop array');
+        // console.log(this.data.items);
+        // console.groupEnd();
       }
     }
   }

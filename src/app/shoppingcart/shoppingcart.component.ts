@@ -30,21 +30,10 @@ export class ShoppingcartComponent implements OnInit {
   ngOnInit() {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');
-    // sessionStorage.setItem('product', 'lololol');
-    // this.http.post(this.rooturl + this.addedurl, {
-    //   token : this.token,
-    //   bid_id: this.pkey
-    // }).subscribe(res => {
-    //   this.data = res;
-    //   this.item = this.data.message.bid;
-    //   console.log(this.item);
-    // });
     this.item = this.DataService.getCrop(this.pkey);
   }
 
   saveamount() {
-    // localStorage.setItem('amount', this.item.price);
-    // sessionStorage.setItem('amount', this.item.price);
     this.DataService.setdata('amount', this.item.price);
   }
 }

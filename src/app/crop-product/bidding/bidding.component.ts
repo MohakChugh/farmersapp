@@ -34,47 +34,33 @@ export class BiddingComponent implements OnInit, OnChanges {
   sms = ``;
 
   constructor(private http: HttpClient, private DataService: DataService, private router: Router) {
-    // this.pkey = localStorage.getItem('pkey');
     this.pkey = this.DataService.getter().pkey;
-    // this.token = localStorage.getItem('token');
     this.token = this.DataService.getter().token;
-    this.requestmethod();
+    this.fetchCrop();
   }
 
   ngOnInit() {
-    // this.pkey = localStorage.getItem('pkey');
     this.pkey = this.DataService.getter().pkey;
-
     this.token = this.DataService.getter().token;
-    // this.token = localStorage.getItem('token');
-    this.requestmethod();
+    this.fetchCrop();
   }
 
   ngOnChanges() {
-    this.requestmethod();
+    this.fetchCrop();
   }
 
   notifysms(name , bidprice) {
     this.sms = `Hi, the current price of your bid ${name} is ${bidprice}`;
     // Phone Number hardcoded to 9810178257
-    // this.http.post('https://dry-harbor-38701.herokuapp.com/sendsms', {
-    //   phone_number: 9810178257,
-    //   sms: this.sms
-    // }).subscribe(res => {
-    //   console.log(res);
-    // });
+    this.http.post('https://dry-harbor-38701.herokuapp.com/sendsms', {
+      phone_number: 9810178257,
+      sms: this.sms
+    }).subscribe(res => {
+      console.log(res);
+    });
   }
 
-  requestmethod() {
-    // this.http.post(this.rooturl + this.addedurl, {
-    //   token: this.token,
-    //   bid_id: this.pkey
-    // }).subscribe(res => {
-    //   this.data = res;
-    //   console.log(this.data);
-    //   this.item = this.data.message.bid;
-    // });
-
+  fetchCrop() {
     this.item = this.DataService.getCrop(this.pkey);
 
   }
@@ -90,12 +76,22 @@ export class BiddingComponent implements OnInit, OnChanges {
   placebid() {
     // Make Http request to save the details of bid
     this.cookiegetter();
+    console.log(this.token);
+    console.log(this.pkey);
+    console.log(this.bid_price);
+    console.log(this.buyerid);
+
+    console.log(typeof (this.bid_price));
+
     this.http.post(this.rooturl + this.biddingurl, {
       token: this.token,
       bid_id: this.pkey,
       bid_price: this.bid_price,
       buyer_id: this.buyerid
     }).subscribe(response => {
+      // Change from here
+      // FIXME:Bid unable to take place, always return invalid request
+      console.log(response);
       this.res = response;
       if (this.res.success === false) {
         this.errorFlag = true;
@@ -116,7 +112,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   private timer() {
     setTimeout(() => {
       this.errorMessage = '';
-      this.requestmethod();
+      this.fetchCrop();
     }, 5000);
   }
 
@@ -125,16 +121,8 @@ export class BiddingComponent implements OnInit, OnChanges {
   }
 
   private cookiegetter() {
-    // this.pkey = localStorage.getItem('pkey');
-    // this.buyerid = localStorage.getItem('username');
     this.token = this.DataService.getter().token || localStorage.getItem('token');
     this.pkey = this.DataService.getter().pkey;
     this.buyerid = this.DataService.getter().username || localStorage.getItem('username');
-
-    console.group('Checking required fields');
-    console.log(this.token);
-    console.log(this.pkey);
-    console.log(this.buyerid);
-    console.groupEnd();
   }
 }

@@ -19,7 +19,7 @@ export class LoginComponent implements OnInit {
     private dataService: DataService
   ) {
     if (!!localStorage.getItem('token')) {
-      this.dataService.setdata('token', localStorage.getItem('token'))
+      this.dataService.setdata('token', localStorage.getItem('token'));
       router.navigate(['/feed']);
     }
   }
