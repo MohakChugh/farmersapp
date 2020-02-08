@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, OnInit, OnChanges } from '@angular/core';
 import { DataService } from 'src/app/data.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-bidding',
@@ -32,7 +33,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   res: any;
   sms = ``;
 
-  constructor(private http: HttpClient, private DataService: DataService) {
+  constructor(private http: HttpClient, private DataService: DataService, private router: Router) {
     // this.pkey = localStorage.getItem('pkey');
     this.pkey = this.DataService.getter().pkey;
     // this.token = localStorage.getItem('token');
