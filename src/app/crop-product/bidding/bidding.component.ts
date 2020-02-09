@@ -33,6 +33,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   res: any;
   sms = ``;
 
+  // tslint:disable-next-line: no-shadowed-variable
   constructor(private http: HttpClient, private DataService: DataService, private router: Router) {
     this.pkey = this.DataService.getter().pkey;
     this.token = this.DataService.getter().token;
