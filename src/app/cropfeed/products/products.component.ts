@@ -32,7 +32,7 @@ export class ProductsComponent implements OnInit {
       // Change starts from here
         // console.log(response.message.bids.bid);
         this.res = response;
-        this.items = this.res.message.bids.bid;
+        this.items = this.res.message.bids;
         // Adding data to data service
         this.data.setdata('items', this.items);
         for (let index = 0; index < this.items.length; index++) {

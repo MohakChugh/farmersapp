@@ -90,15 +90,14 @@ export class BiddingComponent implements OnInit, OnChanges {
       buyer_id: this.buyerid
     }).subscribe(response => {
       // Change from here
-      // FIXME:Bid unable to take place, always return invalid request
       console.log(response);
       this.res = response;
       if (this.res.success === false) {
         this.errorFlag = true;
-        this.errorMessage = JSON.stringify(this.res.error);
+        this.errorMessage = JSON.stringify(this.res.message);
       } else if (this.res.success === true && this.res.error === 'cannot be sold') {
         this.errorFlag = true;
-        this.errorMessage = JSON.stringify(this.res.error);
+        this.errorMessage = JSON.stringify(this.res.message);
       } else {
         this.errorMessage = 'Bid Placed Successfully';
         this.notifysms(this.buyerid, this.bid_price);
