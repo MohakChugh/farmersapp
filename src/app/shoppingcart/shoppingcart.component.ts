@@ -24,9 +24,21 @@ export class ShoppingcartComponent implements OnInit {
   };
   rooturl = 'https://microbits-bidding-api.herokuapp.com';
   addedurl = '/api/bid/get?';
-  // tslint:disable-next-line: no-shadowed-variable
+
+  
+  /**
+   *Creates an instance of ShoppingcartComponent.
+   * @param {HttpClient} http
+   * @param {DataService} DataService
+   * @memberof ShoppingcartComponent
+   */
   constructor(private http: HttpClient, private DataService: DataService) { }
 
+  /**
+   *
+   *
+   * @memberof ShoppingcartComponent
+   */
   ngOnInit() {
     this.pkey = localStorage.getItem('pkey');
     this.token = localStorage.getItem('token');

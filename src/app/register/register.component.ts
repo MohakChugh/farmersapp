@@ -16,10 +16,21 @@ export class RegisterComponent implements OnInit {
   data = {};
   rooturl = 'https://dry-harbor-38701.herokuapp.com';
   addedurl = '/registeruser';
+  /**
+   *Creates an instance of RegisterComponent.
+   * @param {Router} router
+   * @param {HttpClient} http
+   * @memberof RegisterComponent
+   */
   constructor(private router: Router, private http: HttpClient) { }
 
   ngOnInit() {
   }
+  /**
+   *
+   *
+   * @memberof RegisterComponent
+   */
   register() {
     this.data = {
       email: this.email,

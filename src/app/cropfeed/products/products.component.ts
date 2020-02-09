@@ -24,15 +24,22 @@ export class ProductsComponent implements OnInit {
   ngOnInit() {
     this.data.getData.subscribe(data => this.dataState = data);
   }
-
+  /**
+   *Creates an instance of ProductsComponent.
+   * @param {HttpClient} http
+   * @param {DataService} data
+   * @memberof ProductsComponent
+   */
   constructor(private http: HttpClient, private data: DataService) {
     this.token = localStorage.getItem('token');
+
     http.post(this.rooturl + this.addedurl, { token: this.token })
       .subscribe(response => {
-      // Change starts from here
+        // Change starts from here
         // console.log(response.message.bids.bid);
         this.res = response;
         this.items = this.res.message.bids;
+        console.log(this.items);
         // Adding data to data service
         this.data.setdata('items', this.items);
         for (let index = 0; index < this.items.length; index++) {
@@ -42,7 +49,14 @@ export class ProductsComponent implements OnInit {
       });
   }
 
-
+  /**
+   *
+   *
+   * @private
+   * @param {number} index
+   * @param {*} element
+   * @memberof ProductsComponent
+   */
   private checkIfTimeExpired(index: number, element: any) {
     this.time = new Date();
     this.endtime[index] = new Date(element.timer_end);
@@ -50,7 +64,10 @@ export class ProductsComponent implements OnInit {
       this.timeout[index] = true;
     }
   }
-
+  /**
+   *
+   * @param i id
+   */
   savedetailsofitem(i) {
     localStorage.setItem('pkey', this.items[i]._id);
     this.data.setdata('pkey', this.items[i]._id);

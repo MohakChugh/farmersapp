@@ -18,7 +18,12 @@ export class RelatedProductsComponent implements OnInit {
   endtime: Array<Date> = [new Date()];
   time: Date;
 
-  // tslint:disable-next-line: no-shadowed-variable
+  /**
+   *Creates an instance of RelatedProductsComponent.
+   * @param {HttpClient} http
+   * @param {DataService} dataFromService
+   * @memberof RelatedProductsComponent
+   */
   constructor(private http: HttpClient, private dataFromService: DataService) {
     this.token = localStorage.getItem('token');
     this.items = this.dataFromService.getter().items;

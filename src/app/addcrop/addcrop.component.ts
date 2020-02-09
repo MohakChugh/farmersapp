@@ -33,35 +33,15 @@ export class AddcropComponent implements OnInit {
 
   ngOnInit() {
   }
-
+  /**
+   *
+   *
+   * @memberof AddcropComponent
+   */
   post() {
     this.isuploading = true;
     this.fixTimer();
     this.seller_name = this.Data.getter().username || `Mohak Chugh`;
-    const DATA = {
-      item_name: this.name,
-      item_description: this.description,
-      image_url: this.imageurl,
-      min_price: this.biddingPrice,
-      buy_now_price: this.buyNow,
-      quantity: this.quantity,
-      timer_limit: this.timer_limit,
-      token: this.token,
-      seller_name: this.seller_name
-    };
-
-    // const DATA = {
-    //   item_name: 'lauki',
-    //   item_description: 'test',
-    //   image_url: 'https://lauki.in',
-    //   min_price: 30,
-    //   buy_now_price: 40,
-    //   quantity: 100,
-    //   timer_limit: '100:15:00',
-    //   token: 1,
-    //   seller_name: 'test'
-    //   };
-    console.log(DATA);
     const headers = new HttpHeaders().set('Content-Type', `application/json`);
     this.http.post(this.rooturl + this.addedurl, {
       item_name: this.name,
@@ -89,7 +69,12 @@ export class AddcropComponent implements OnInit {
     });
   }
 
-
+  /**
+   *
+   *
+   * @private
+   * @memberof AddcropComponent
+   */
   private fixTimer() {
     this.time = this.timer_limit;
     this.timer_limit = `${this.time}:00:00`;

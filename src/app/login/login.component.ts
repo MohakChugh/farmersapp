@@ -13,6 +13,13 @@ export class LoginComponent implements OnInit {
 
   dataState: any;
   otp = false;
+  /**
+   *Creates an instance of LoginComponent.
+   * @param {Router} router
+   * @param {HttpClient} http
+   * @param {DataService} dataService
+   * @memberof LoginComponent
+   */
   constructor(
     private router: Router,
     private http: HttpClient,
@@ -33,8 +40,13 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
     this.dataService.getData.subscribe(data => this.dataState = data);
   }
-
-  login() {
+/**
+ *
+ *
+ * @memberof LoginComponent
+ */
+login() {
+    
     this.isLoading = true;
     localStorage.setItem('username', JSON.stringify(this.name.split('@')[0]));
     this.dataService.setdata('username', JSON.stringify(this.name.split('@')[0]));

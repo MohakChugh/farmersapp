@@ -8,17 +8,44 @@ export class DataService {
 
   constructor() { }
 
+  /**
+   *
+   *
+   * @private
+   * @type {*}
+   * @memberof DataService
+   */
   private data: any = new BehaviorSubject<any>({});
   getData = this.data.asObservable();
 
+  /**
+   *
+   *
+   * @param {*} key
+   * @param {*} value
+   * @memberof DataService
+   */
   public setdata(key, value: any) {
     this.data[key] = value;
   }
 
+  /**
+   *
+   *
+   * @returns
+   * @memberof DataService
+   */
   public getter() {
     return this.data;
   }
 
+  /**
+   *
+   *
+   * @param {*} pkey
+   * @returns
+   * @memberof DataService
+   */
   public getCrop(pkey: any) {
     // tslint:disable-next-line: prefer-for-of
     for (let i = 0; i < this.data.items.length; i++) {
@@ -31,6 +58,13 @@ export class DataService {
     }
   }
 
+  /**
+   *
+   *
+   * @param {*} pkey
+   * @param {*} newData
+   * @memberof DataService
+   */
   public updateValue(pkey: any, newData: any) {
     for (let i = 0; i < this.data.items.length; i++) {
       if (this.data.items[i]._id === pkey) {

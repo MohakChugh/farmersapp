@@ -16,8 +16,12 @@ export class LogoutComponent implements OnInit {
       this.isLogin = 'Logout';
     }
   }
-
-  logout() {
+/**
+ *
+ *
+ * @memberof LogoutComponent
+ */
+logout() {
     if (this.isLogin === 'Logout') {
       localStorage.removeItem('token');
       this.router.navigate(['/login']);
