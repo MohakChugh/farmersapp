@@ -29,6 +29,7 @@ export class AddcropComponent implements OnInit {
   res: any;
   message = '';
   time: any;
+  // tslint:disable-next-line: variable-name
   seller_name: string;
   // tslint:disable-next-line: variable-name
   timer_limit: any;
@@ -66,12 +67,6 @@ export class AddcropComponent implements OnInit {
       });
   }
 
-
-  /**
-   *
-   *
-   * @memberof AddcropComponent
-   */
   post() {
     this.isuploading = true;
     this.fixTimer();
@@ -106,12 +101,6 @@ export class AddcropComponent implements OnInit {
     });
   }
 
-  /**
-   *
-   *
-   * @private
-   * @memberof AddcropComponent
-   */
   private fixTimer() {
     this.time = this.timer_limit;
     this.timer_limit = `${this.time}:00:00`;
