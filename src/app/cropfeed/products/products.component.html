@@ -4,7 +4,7 @@
     <div class="clean-product-item">
       <div class="image"><a (click)="savedetailsofitem(i)" [routerLink]="['/cropproduct']">
           <img class="img-fluid d-block mx-auto"
-            src="https://m.economictimes.com/thumb/67089794.cms?height=480&width=640&resizemode=1"></a></div>
+            [src]="item.image_url"></a></div>
       <div class="product-name"><a (click)="savedetailsofitem(i)" [routerLink]="['/cropproduct']">{{item.name}}</a>
       </div>
       <div *ngIf="items[i].sold_flag == 1" class="alert alert-danger"> Item Sold</div>

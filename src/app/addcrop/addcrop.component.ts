@@ -9,8 +9,16 @@ import { DataService } from '../data.service';
 })
 export class AddcropComponent implements OnInit {
 
+  // Image upload data
+  selectedFile: File = null;
+  isuploadingimage = false;
+  imageUploaded = false;
+  imageResponse: any;
+  // Image upload data ends here
+
   name = '';
   quantity = 0;
+  image: any;
   biddingPrice = 0;
   buyNow = 0;
   description = '';
@@ -33,6 +41,32 @@ export class AddcropComponent implements OnInit {
 
   ngOnInit() {
   }
+
+  onSelectedFile(event) {
+    this.selectedFile = event.target.files[0];
+  }
+
+  onUpload() {
+    this.isuploadingimage = true;
+    const fd = new FormData();
+    fd.append('file', this.selectedFile);
+    this.http.post('https://agritech-imageupload.herokuapp.com/upload', fd)
+      .subscribe(res => {
+        this.isuploadingimage = false;
+        this.imageUploaded = true;
+        console.log(res);
+        this.imageResponse = res;
+        this.imageurl = this.imageResponse.Data[0].Location;
+
+        setTimeout(() => {
+          this.imageUploaded = false;
+        }, 3000);
+
+        console.log('Image Url for crop is ' + this.imageurl);
+      });
+  }
+
+
   /**
    *
    *
