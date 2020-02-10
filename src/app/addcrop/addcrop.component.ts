@@ -89,15 +89,18 @@ export class AddcropComponent implements OnInit {
       seller_name: this.seller_name
     }, { headers })
       .subscribe(response => {
-        console.log(response);
+        // console.log(response);
         this.isuploading = false;
         this.res = response;
-        if (this.res.error === null) {
+        console.log(this.res.error);
+        console.log(this.res.success);
+        if (this.res.error === false) {
           if (this.res.success === true) {
+            console.log('Now uploaded!');
             this.message = `Details Uploaded Successfully!`;
             setTimeout(() => {
               this.message = '';
-            }, 5000);
+            }, 10000);
           }
         }
     });
