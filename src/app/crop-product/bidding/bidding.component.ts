@@ -33,24 +33,14 @@ export class BiddingComponent implements OnInit, OnChanges {
   res: any;
   sms = ``;
 
-  /**
-   *Creates an instance of BiddingComponent.
-   * @param {HttpClient} http
-   * @param {DataService} DataService
-   * @param {Router} router
-   * @memberof BiddingComponent
-   */
+
+  // tslint:disable-next-line: no-shadowed-variable
   constructor(private http: HttpClient, private DataService: DataService, private router: Router) {
     this.pkey = this.DataService.getter().pkey;
     this.token = this.DataService.getter().token;
     this.fetchCrop();
   }
 
-  /**
-   *
-   *
-   * @memberof BiddingComponent
-   */
   ngOnInit() {
     this.pkey = this.DataService.getter().pkey;
     this.token = this.DataService.getter().token;
@@ -60,13 +50,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   ngOnChanges() {
     this.fetchCrop();
   }
-  /**
-   *
-   *
-   * @param {*} name
-   * @param {*} bidprice
-   * @memberof BiddingComponent
-   */
+
   notifysms(name, bidprice) {
     this.sms = `Hi, the current price of your bid ${name} is ${bidprice}`;
     // Phone Number hardcoded to 9810178257
@@ -78,11 +62,6 @@ export class BiddingComponent implements OnInit, OnChanges {
     });
   }
 
-  /**
-   *
-   *
-   * @memberof BiddingComponent
-   */
   fetchCrop() {
     this.item = this.DataService.getCrop(this.pkey);
   }
@@ -94,11 +73,7 @@ export class BiddingComponent implements OnInit, OnChanges {
   decreaseby1() {
     this.bid_price -= 500;
   }
-  /**
-   *
-   *
-   * @memberof BiddingComponent
-   */
+
   placebid() {
     // Make Http request to save the details of bid
     this.cookiegetter();
@@ -133,31 +108,19 @@ export class BiddingComponent implements OnInit, OnChanges {
     });
     this.timer();
   }
-  /**
-   *
-   *
-   * @private
-   * @memberof BiddingComponent
-   */
+
   private timer() {
     setTimeout(() => {
       this.errorMessage = '';
+      this.errorFlag = false;
       this.fetchCrop();
     }, 5000);
   }
-  /**
-   * 
-   * @param bid 
-   */
+
   private updateValueOfBid(bid: any) {
     this.item.curr_bidprice = bid;
   }
-  /**
-   *
-   *
-   * @private
-   * @memberof BiddingComponent
-   */
+
   private cookiegetter() {
     this.token = this.DataService.getter().token || localStorage.getItem('token');
     this.pkey = this.DataService.getter().pkey;
