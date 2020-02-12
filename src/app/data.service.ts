@@ -7,34 +7,11 @@ import { BehaviorSubject } from 'rxjs';
 export class DataService {
 
   constructor() { }
-
-  /**
-   *
-   *
-   * @private
-   * @type {*}
-   * @memberof DataService
-   */
   private data: any = new BehaviorSubject<any>({});
   getData = this.data.asObservable();
-
-  /**
-   *
-   *
-   * @param {*} key
-   * @param {*} value
-   * @memberof DataService
-   */
   public setdata(key, value: any) {
     this.data[key] = value;
   }
-
-  /**
-   *
-   *
-   * @returns
-   * @memberof DataService
-   */
   public getter() {
     return this.data;
   }
