@@ -4,5 +4,6 @@
         "loginuser",
         "rooturl"
     ],
-    "npm-scripts.showStartNotification": false
+    "npm-scripts.showStartNotification": false,
+    "explorer.compactFolders": false
 }

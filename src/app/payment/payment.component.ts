@@ -52,7 +52,10 @@ payment = () => {
           },
           theme: {
               color: '#F37254'
-          }
+          },
+          handler: (res: any) => {
+            console.log(res);
+        }
       };
         console.group('Checking order id');
         console.log('Checking orderid');
