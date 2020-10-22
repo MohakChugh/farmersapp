@@ -1,30 +1,52 @@
-# Farmersapp
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 8.3.21.
+## Url for live demo
 
-#### Url for live demo
-https://farmersapp-microbits.firebaseapp.com
+<https://farmersapp-microbits.firebaseapp.com>
 
-## Development server
+## About Agritech
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+AgriTech aspires to make the process of connecting the suppliers & consumers seamless, through an “open and transparent channel” using the ideology of “an everything store for people expecting more” where producers get all the information they needs for high profitability and the consumers get best quality produce directly from the farm. 
+Penny-Pinching, while you enjoy your fresh veggies!
 
-## Code scaffolding
+## Business Relevance (Our role in Indian Market)
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+We ensure natural supply-demand by digitizing the process, thereby “reducing inflation” and “reducing the scope of profiteering”.
+“Normalised rates” are automatically enforced because of vast variety of supplies from producers.
+Reducing “income disparity” between large scale farmers and small scale farmers by providing them same level of playing ground.
+It is an initiative taken to “organise an unorganised sector”.
 
-## Build
+## Architecture
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+AgriTech uses a 3-tier architecture,
 
-## Running unit tests
+- Frontend is powered by Angular providing strong static typing at the client side and robust state management for seamless user experience. 
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+- Middle Tier is implemented as Dockerized Microservices using Express on NodeJS, enabling high performance and also coordinating with our Python modules for NLP & Image Processing.
 
-## Running end-to-end tests
+- Physical Tier integrates SQL and NoSQL (MongoDB) as database featuring strong relational mappings, flexibility and high level of robustness.
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
+## Quirks and features!
 
-## Further help
+- The producers and consumers registers, authenticating into our app or via whatsapp.
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+- Guided by our “Voice Assistant”, on each and every step the producer can update information about their produce, or they can also use,	
+“OK Google”, “WhatsApp” & “Facebook Messenger” for the same on our platform.
+
+- As soon as the produce is posted, it is put up as a bid for the buyers on our bidding-feed. Real time “Bidding” takes place and the highest bidder claims the produce.
+
+- Buyers can use “Buy Now” feature which bypasses them from the bidding process and allows them to claim the product directly at a fixed price which is stated by the producer.
+
+- Once a bid is updated, expired or claimed, the producer & the highest-bidder are “Always Notified” via SMS, Whatsapp & push-notifications.
+
+- When the buyer claims the bid, they are asked to pay 15% of the total produce amount, as a token which is refundable, if any party fails to meet their side of contract. On completion of delivery, the buyer pays the remaining 85% of the amount.
+
+## Why Agritech
+
+- Reaching all scale producers using the apps that are already installed on their phone such as WhatsApp, Facebook.
+
+- An easy and seamless Bidding process, also assisting our users with a Voice Assistant which guides them on each and every step of the process.
+
+- Reaching an audience who doesn’t operate on smartphones using OK Google, supported by IDEA-Vodafone, which works even on feature phones, targeting more than 70% of the user base.
+
+- The Probability of the produce of being good quality will be calculated on 3 parameters, i.e. The QA report, Output of our ML algorithms (Geolocation + Image Processing) and previous history of the producer i.e. his User Rating.
+
