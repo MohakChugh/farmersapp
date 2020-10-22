@@ -1,3 +1,4 @@
+# Agritech
 
 ## Url for live demo
 
@@ -50,3 +51,26 @@ AgriTech uses a 3-tier architecture,
 
 - The Probability of the produce of being good quality will be calculated on 3 parameters, i.e. The QA report, Output of our ML algorithms (Geolocation + Image Processing) and previous history of the producer i.e. his User Rating.
 
+## Screenshots
+
+Login Page:
+![login.png](./Screenshots/login.png)
+
+Feed:
+![agritech.png](./Screenshots/agritech.png)
+
+Product Page
+![productPage.png](./Screenshots/productPage.png)
+
+Bidding Page
+![bidding.png](./Screenshots/bidding.png)
+![moda.png](./Screenshots/moda.png)
+
+Shopping Cart
+![shoppingcart.png](./Screenshots/shoppingcart.png)
+
+Payment Gateway
+![payment.png](./Screenshots/payment.png)
+
+Delivery Page
+![delivery.png](Screenshots/delivery.png)
